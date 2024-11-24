@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Ranking{% endblock %}
+
+{% block content %}
+    <h1>Ranking de Pontuações</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Pontuação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rank in rankings %}
+            <tr>
+                <td>{{ rank.nome }}</td>
+                <td>{{ rank.pontuacao }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Bíblia{% endblock %}
+
+{% block content %}
+<h1>Pesquise Versos Bíblicos</h1>
+<p>Digite a referência do verso (exemplo: João 3:16) e clique em "Pesquisar".</p>
+<input type="text" id="verseInput" placeholder="Exemplo: João 3:16">
+<button onclick="fetchVerse()">Pesquisar</button>
+<div id="verseDisplay"></div>
+
+<script>
+    async function fetchVerse() {
+        const verseInput = document.getElementById("verseInput").value.trim();
+        const verseDisplay = document.getElementById("verseDisplay");
+
+        if (!verseInput) {
+            verseDisplay.style.display = "block";
+            verseDisplay.textContent = "Por favor, insira uma referência bíblica válida.";
+            return;
+        }
+
+        const url = `//bible-api.com/${encodeURIComponent(verseInput)}?translation=almeida`;
+
+        try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Verso não encontrado. Verifique a referência.");
+            }
+
+            const data = await response.json();
+
+            verseDisplay.style.display = "block";
+            verseDisplay.innerHTML = `<strong>${data.reference}</strong>: ${data.text}`;
+
+
+        } catch (error) {
+            verseDisplay.style.display = "block";
+            verseDisplay.textContent = error.message;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introdução ao Cristianismo - Módulo 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    nav {
+      background-color: #34495e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 20px;
+    }
+    .questions {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .question-label {
+      font-weight: bold;
+    }
+    .answers {
+      margin-top: 10px;
+    }
+    .answer {
+      margin-bottom: 10px;
+    }
+    .button {
+      padding: 10px 15px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .button:disabled {
+      background-color: #bdc3c7;
+    }
+    .result {
+      font-size: 1.2rem;
+      color: #2ecc71;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Introdução ao Cristianismo - Módulo 1: Deus - O Início de Tudo</h1>
+</header>
+
+<nav>
+  <a href="#quem-deus">Quem é Deus?</a>
+  <a href="#atributos-deus">Atributos de Deus</a>
+  <a href="#trindade">A Trindade</a>
+  <a href="#criacao">Deus como Criador e Sustentador</a>
+</nav>
+
+<section id="quem-deus">
+  <h2>Quem é Deus?</h2>
+  <p>Deus é o ser supremo, eterno, imutável e absolutamente perfeito. Ele se relaciona conosco de forma íntima e pessoal, e deseja um relacionamento profundo com cada um de nós.</p>
+</section>
+
+<section id="atributos-deus">
+  <h2>Atributos de Deus</h2>
+  <ul>
+    <li><strong>Amor:</strong> Deus é amor (1 João 4:8).</li>
+    <li><strong>Santidade:</strong> Deus é absolutamente puro e separado do pecado (Isaías 6:3).</li>
+    <li><strong>Justiça:</strong> Deus é justo e imparcial (Deuteronômio 32:4).</li>
+    <li><strong>Onipotência:</strong> Deus é todo-poderoso (Jeremias 32:17).</li>
+    <li><strong>Onipresença:</strong> Deus está em todos os lugares ao mesmo tempo (Salmos 139:7-10).</li>
+    <li><strong>Onisciência:</strong> Deus sabe todas as coisas (Salmos 139:1-6).</li>
+  </ul>
+</section>
+
+<section id="trindade">
+  <h2>A Trindade</h2>
+  <p>Deus é um em essência e três em pessoas: Pai, Filho e Espírito Santo (Mateus 28:19). Cada pessoa da Trindade é plenamente Deus, e yet, existe apenas um Deus.</p>
+</section>
+
+<section id="criacao">
+  <h2>Deus como Criador e Sustentador</h2>
+  <p>Gênesis 1 e 2 narram o relato da criação. Deus, pela Sua palavra, criou o universo e tudo o que nele há, incluindo a humanidade. Ele não apenas criou, mas sustenta e governa toda a criação (Hebreus 1:3).</p>
+</section>
+
+<section class="questions">
+  <h3>Questões sobre o conteúdo</h3>
+
+  <div class="question">
+    <label for="q1" class="question-label">1. Qual dos seguintes atributos NÃO descreve Deus?</label>
+    <div class="answers">
+      <label><input type="radio" name="q1" value="a"> Amor</label>
+      <label><input type="radio" name="q1" value="b"> Santidade</label>
+      <label><input type="radio" name="q1" value="c"> Maldade</label>
+      <label><input type="radio" name="q1" value="d"> Onipotência</label>
+      <label><input type="radio" name="q1" value="e"> Onisciência</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label for="q2" class="question-label">2. O que a doutrina da Trindade afirma?</label>
+    <div class="answers">
+      <label><input type="radio" name="q2" value="a"> Que existem três deuses separados.</label>
+      <label><input type="radio" name="q2" value="b"> Que Deus é uma força impessoal.</label>
+      <label><input type="radio" name="q2" value="c"> Que Deus é um em essência e três em pessoas.</label>
+      <label><input type="radio" name="q2" value="d"> Que Deus muda de forma ao longo do tempo.</label>
+      <label><input type="radio" name="q2" value="e"> Que Jesus e o Espírito Santo não são Deus.</label>
+    </div>
+  </div>
+
+  <!-- Continue as questões aqui... -->
+
+  <button class="button" id="submit" onclick="checkAnswers()">Enviar Respostas</button>
+  <div id="result" class="result"></div>
+</section>
+
+<script>
+  // Função para verificar as respostas
+  function checkAnswers() {
+    let resultText = "";
+    let score = 0;
+
+    // Pergunta 1
+    if (document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value === 'c') {
+      score++;
+    }
+
+    // Pergunta 2
+    if (document.querySelector('input[name="q2"]:checked') && document.querySelector('input[name="q2"]:checked').value === 'c') {
+      score++;
+    }
+
+    // Perguntas adicionais...
+
+    // Exibe o resultado
+    if (score === 2) {
+      resultText = "Você acertou todas as respostas!";
+    } else {
+      resultText = `Você acertou ${score} de 2. Tente novamente!`;
+    }
+
+    // Armazena o resultado no localStorage
+    localStorage.setItem("quizResult", resultText);
+
+    // Exibe o resultado na tela
+    document.getElementById("result").innerText = resultText;
+  }
+
+  // Carregar resultado anterior se disponível
+  window.onload = function() {
+    if (localStorage.getItem("quizResult")) {
+      document.getElementById("result").innerText = localStorage.getItem("quizResult");
+    }
+  };
+</script>
+
+</body>
+</html>
