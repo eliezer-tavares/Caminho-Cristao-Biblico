@@ -1,42 +1,37 @@
 {% extends "base.html" %}
+
 {% block title %}Quiz Bíblico{% endblock %}
 
 {% block content %}
-<h2>Quiz Bíblico</h2>
-<p>Teste seus conhecimentos da Palavra de Deus!</p>
 
-<div id="user-info">
-    <h3>Insira seus dados</h3>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" placeholder="Seu nome" required><br><br>
-
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" placeholder="Seu e-mail" required><br><br>
-
+<div id="formulario">
+    <h2>Bem-vindo ao Quiz Bíblico</h2>
+    <input type="text" id="nome" placeholder="Seu Nome">
+    <input type="email" id="email" placeholder="Seu E-mail">
+    <div>
+        <h3>Escolha o nível:</h3>
+        <select id="nivel">
+            <option value="basico">Básico</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avancado">Avançado</option>
+        </select>
+    </div>
     <button onclick="iniciarQuiz()">Iniciar Quiz</button>
 </div>
 
-<div id="quiz-container" style="display: none;">
-    <div id="question-container">
-        <h3 id="pergunta"></h3>
-        <div id="opcoes" class="opcoes-container"></div>
-    </div>
-    <div id="result-container" style="display:none;">
-        <h3>Resultado:</h3>
-        <p id="score"></p>
-        <button onclick="salvarPontuacao()">Enviar Resultado</button>
-        <button onclick="resetQuiz()">Reiniciar Quiz</button>
-    </div>
-</div>
-{% endblock %}
 
+<div id="quiz" style="display: none;">
+    <h2 id="pergunta"></h2>
+    <div id="opcoes"></div>
+</div>
+
+<div id="resultado" style="display: none;">
+    <p>Pontuação final: <span id="pontuacao"></span></p>
+    <div id="ranking-container"></div>
+</div>
+
+{% endblock %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<script>
-    // Inicializa o quiz após o carregamento da página (apenas se estiver na página do quiz)
-    if (window.location.pathname === '/quiz') {
-        // Coloque aqui o código de inicialização do seu quiz
-    }
-</script>
 {% endblock %}

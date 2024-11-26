@@ -1,12 +1,7 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
-import json
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import sqlite3
 
 app = Flask(__name__)
-
-# Carregar a Bíblia em JSON (certifique-se de que acf.json está na mesma pasta)
-with open('acf.json', 'r', encoding='utf-8-sig') as f:
-    biblia = json.load(f)
 
 # Conexão com o banco de dados
 def get_db_connection():
@@ -17,7 +12,7 @@ def get_db_connection():
 # Inicialização do banco de dados
 def init_db():
     conn = get_db_connection()
-    conn.execute('''
+    conn.execute(''' 
         CREATE TABLE IF NOT EXISTS rankings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
@@ -30,6 +25,20 @@ def init_db():
 
 init_db()
 
+# Função para salvar o resultado no banco de dados
+def salvar_resultado(nome, email, pontuacao):
+    conn = get_db_connection()
+    conn.execute('INSERT INTO rankings (nome, email, pontuacao) VALUES (?, ?, ?)', (nome, email, pontuacao))
+    conn.commit()
+    conn.close()
+
+# Função para obter o ranking
+def obter_ranking():
+    conn = get_db_connection()
+    rankings = conn.execute('SELECT nome, pontuacao FROM rankings ORDER BY pontuacao DESC').fetchall()
+    conn.close()
+    return rankings
+
 # Rotas
 @app.route("/")
 def index():
@@ -39,59 +48,39 @@ def index():
 def biblia():
     return render_template("biblia.html")
 
+@app.route("/sobre")
+def sobre():
+    return render_template("sobre.html")
+
+@app.route("/reflexoes")
+def reflexoes():
+    return render_template("reflexoes.html")
+
+@app.route("/cristianismo")
+def cristianismo():
+    return render_template("cristianismo.html")
+
 @app.route("/quiz")
 def quiz():
     return render_template("quiz.html")
 
+@app.route("/salvar_pontuacao", methods=["POST"])
+def salvar_pontuacao():
+    dados = request.get_json()
+    nome = dados.get("nome")
+    email = dados.get("email")
+    pontuacao = dados.get("pontuacao")
 
-# Rotas da API
-@app.route("/api/biblia")
-def biblia_completa():
-    return jsonify(biblia)
-
-@app.route("/api/biblia/<livro>/<int:capitulo>")
-def capitulo_biblico(livro, capitulo):
-    livro_encontrado = next((b for b in biblia if b["book"].lower() == livro.lower()), None)
-    if not livro_encontrado:
-        return jsonify({"error": "Livro não encontrado"}), 404
-    if capitulo <= 0 or capitulo > len(livro_encontrado["chapters"]):
-        return jsonify({"error": "Capítulo não encontrado"}), 404
-    versiculos = livro_encontrado["chapters"][capitulo - 1]
-    return jsonify({"livro": livro, "capitulo": capitulo, "versiculos": versiculos})
-
-@app.route("/api/biblia/<livro>/<int:capitulo>/<int:versiculo>")
-def versiculo_biblico(livro, capitulo, versiculo):
-    livro_encontrado = next((b for b in biblia if b["book"].lower() == livro.lower()), None)
-    if not livro_encontrado:
-        return jsonify({"error": "Livro não encontrado"}), 404
-    if capitulo <= 0 or capitulo > len(livro_encontrado["chapters"]):
-        return jsonify({"error": "Capítulo não encontrado"}), 404
-    capitulo_encontrado = livro_encontrado["chapters"][capitulo - 1]
-    if versiculo <= 0 or versiculo > len(capitulo_encontrado):
-        return jsonify({"error": "Versículo não encontrado"}), 404
-    versiculo_texto = capitulo_encontrado[versiculo - 1]
-    return jsonify({"livro": livro, "capitulo": capitulo, "versiculo": versiculo, "texto": versiculo_texto})
-
-@app.route("/salvar_resultado", methods=["POST"])
-def salvar_resultado():
-    nome = request.form['nome']
-    email = request.form['email']
-    pontuacao = int(request.form['pontuacao'])
-
-    conn = get_db_connection()
-    conn.execute('INSERT INTO rankings (nome, email, pontuacao) VALUES (?, ?, ?)', (nome, email, pontuacao))
-    conn.commit()
-    conn.close()
-
-    return redirect(url_for('ranking'))
+    if nome and email and pontuacao is not None:
+        salvar_resultado(nome, email, pontuacao)
+        return jsonify({"message": "Pontuação salva com sucesso!"}), 200
+    else:
+        return jsonify({"error": "Dados inválidos"}), 400
 
 @app.route("/ranking")
 def ranking():
-    conn = get_db_connection()
-    rankings = conn.execute('SELECT nome, pontuacao FROM rankings ORDER BY pontuacao DESC').fetchall()
-    conn.close()
+    rankings = obter_ranking()
     return render_template("ranking.html", rankings=rankings)
-
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,87 +1,62 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflexões Cristãs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-        header h1 {
-            margin: 0;
-        }
-        main {
-            padding: 20px;
-        }
-        .reflection-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        .reflection-list li {
-            margin: 15px 0;
-        }
-        .reflection-list a {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.2em;
-            font-weight: bold;
-            border: 2px solid #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .reflection-list a:hover {
-            background-color: #333;
-            color: white;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Reflexões Cristãs{% endblock %}
 
-    <header>
-        <h1>Reflexões Cristãs</h1>
-    </header>
+{% block content %}
+<h2>Bem-vindo às nossas reflexões cristãs</h2>
+<p>Abaixo, você encontrará links para reflexões inspiradoras baseadas na Bíblia:</p>
 
-    <main>
-        <h2>Bem-vindo às nossas reflexões cristãs</h2>
-        <p>Abaixo, você encontrará links para reflexões inspiradoras baseadas na Bíblia:</p>
+<ul class="reflection-list">
+    <li><a href="#encontrando-paz">Encontrando Paz Interior</a></li>
+    <li><a href="#semente-fe">A Semente da Fé</a></li>
+    <li><a href="#amor-liberta">O Amor que Liberta</a></li>
+</ul>
 
-        <ul class="reflection-list">
-            <li><a href="#encontrando-paz">Encontrando Paz Interior</a></li>
-            <li><a href="#semente-fe">A Semente da Fé</a></li>
-            <li><a href="#amor-liberta">O Amor que Liberta</a></li>
-        </ul>
-    </main>
+<!-- Seções das reflexões -->
+<section id="encontrando-paz">
+    <h3>Encontrando Paz Interior</h3>
+    <p>Em meio ao turbilhão da vida, com suas incertezas, desafios, ansiedades e medos constantes, encontrar a paz
+        interior pode parecer uma tarefa impossível. Mas, para o cristão, a paz não é a ausência de problemas, mas a
+        presença de Deus em meio a eles. É a confiança de que, mesmo nas tempestades, Ele está no controle e nos guiará
+        para águas tranquilas.</p>
+    <p>A Bíblia nos oferece inúmeros exemplos de paz em meio à adversidade. Lembre-se de Jesus dormindo tranquilamente
+        no barco durante a tempestade (Marcos 4:35-41). A fé n’Ele nos permite descansar em Seus braços, sabendo que Ele
+        cuida de nós.</p>
+    <p>Busque a paz interior por meio da oração, da meditação na Palavra e da confiança em Deus. Lembre-se das palavras
+        de Jesus: "Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração,
+        nem se atemorize." (João 14:27)</p>
 
-    <!-- Seções das reflexões -->
-    <section id="encontrando-paz">
-        <h3>Encontrando Paz Interior</h3>
-        <p>Em meio ao turbilhão da vida, com suas incertezas, desafios, ansiedades e medos constantes...</p>
-        <a href="#topo">Voltar ao topo</a>
-    </section>
+    <a href="#topo">Voltar ao topo</a> <a href="{{ url_for('reflexoes') }}">Voltar para Reflexões</a>
 
-    <section id="semente-fe">
-        <h3>A Semente da Fé</h3>
-        <p>A fé é frequentemente comparada a uma pequena semente. Jesus, em suas parábolas, utiliza essa analogia...</p>
-        <a href="#topo">Voltar ao topo</a>
-    </section>
+</section>
 
-    <section id="amor-liberta">
-        <h3>O Amor que Liberta</h3>
-        <p>O amor é a essência do cristianismo. É o princípio que norteia todos os ensinamentos de Jesus...</p>
-        <a href="#topo">Voltar ao topo</a>
-    </section>
+<section id="semente-fe">
+    <h3>A Semente da Fé</h3>
+    <p>A fé é frequentemente comparada a uma pequena semente. Jesus, em suas parábolas, utiliza essa analogia para
+        ilustrar o poder transformador que ela possui. Assim como uma pequena semente pode se tornar uma grande árvore,
+        a fé, mesmo que pequena, pode gerar frutos extraordinários em nossas vidas.</p>
+    <p>A fé não é apenas acreditar em algo, mas é confiar em Deus e em Suas promessas, mesmo quando as circunstâncias
+        parecem contrárias. É crer que Ele é poderoso para fazer infinitamente mais do que pedimos ou pensamos (Efésios
+        3:20).</p>
+    <p>Cultive a semente da fé em seu coração por meio da oração, do estudo da Bíblia e da comunhão com outros cristãos.
+        Assim como uma semente precisa ser regada e cuidada para crescer, a fé também precisa ser nutrida para que se
+        fortaleça e produza frutos abundantes.</p>
 
-</body>
-</html>
+    <a href="#topo">Voltar ao topo</a> <a href="{{ url_for('reflexoes') }}">Voltar para Reflexões</a>
+</section>
+
+<section id="amor-liberta">
+    <h3>O Amor que Liberta</h3>
+    <p>O amor é a essência do cristianismo. É o princípio que norteia todos os ensinamentos de Jesus e o fundamento de
+        nossa relação com Deus e com o próximo. O amor verdadeiro, aquele que vem de Deus, é incondicional, sacrificial
+        e libertador.</p>
+    <p>O amor de Deus por nós é demonstrado de forma suprema na cruz, onde Jesus se entregou por nossos pecados. Esse
+        amor nos liberta do medo, da culpa e da condenação, nos dando a liberdade de viver uma vida plena e abundante.
+    </p>
+    <p>Ame a Deus de todo o seu coração, de toda a sua alma e de todo o seu entendimento, e ame ao seu próximo como a si
+        mesmo (Mateus 22:37-39). O amor é o maior mandamento e a chave para uma vida transformada pelo poder de Deus.
+    </p>
+
+    <a href="#topo">Voltar ao topo</a> <a href="{{ url_for('reflexoes') }}">Voltar para Reflexões</a>
+
+</section>
+{% endblock %}

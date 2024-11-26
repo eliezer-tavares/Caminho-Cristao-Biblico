@@ -1,21 +1,27 @@
+<!-- base.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} - Caminho Cristão Bíblico</title>
+    <title>{% block title %}Caminho Cristão Bíblico{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <header>
         <nav aria-label="Menu principal">
-            <h1><a href="/">Caminho Cristão Bíblico</a></h1>  <!-- Link para a página inicial -->
+            <h1><a href="{{ url_for('index') }}">Caminho Cristão Bíblico</a></h1>
             <ul>
                 <li><a href="{{ url_for('index') }}">Início</a></li>
                 <li><a href="{{ url_for('biblia') }}">Bíblia</a></li>
-                <li><a href="#">Introdução ao Cristianismo</a></li>  <!-- Você pode remover este link -->
+                <li><a href="{{ url_for('cristianismo') }}">Introdução ao Cristianismo</a></li>
                 <li><a href="{{ url_for('quiz') }}">Quiz Bíblico</a></li>
-                <li><a href="{{ url_for('ranking') }}">Ranking</a></li </ul>
+                <li><a href="{{ url_for('ranking') }}">Ranking</a></li>
+                <li><a href="{{ url_for('reflexoes') }}">Reflexões</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -27,5 +33,7 @@
         <p>© 2024 Caminho Cristão Bíblico. Todos os direitos reservados.</p>
     </footer>
 
-    {% block scripts %}{% endblock %}  </body>
+    {% block scripts %}{% endblock %}
+</body>
+
 </html>

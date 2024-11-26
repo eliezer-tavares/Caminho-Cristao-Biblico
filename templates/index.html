@@ -1,3 +1,4 @@
+<!-- index.html -->
 {% extends "base.html" %}
 {% block title %}Início{% endblock %}
 
@@ -11,5 +12,8 @@
     <p>Explore a Bíblia, teste seus conhecimentos com o Quiz e encontre reflexões inspiradoras.</p>
     <a href="{{ url_for('biblia') }}" class="botao">Explorar a Bíblia</a>
     <a href="{{ url_for('quiz') }}" class="botao">Iniciar o Quiz</a>
+    <a href="{{ url_for('cristianismo') }}" class="botao">Introdução ao Cristianismo</a>
+    <a href="{{ url_for('reflexoes') }}" class="botao">Reflexões</a>
+    <a href="{{ url_for('sobre') }}" class="botao">Sobre</a>
 </section>
 {% endblock %}

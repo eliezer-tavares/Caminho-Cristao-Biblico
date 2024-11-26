@@ -1,84 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
+{% block title %}Sobre{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - Caminho Cristão Bíblico</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
+{% block content %}
+<section class="sobre">
+    <div class="container">
+        <img src="{{ url_for('static', filename='img/caminho.jpg') }}" alt="Caminho em direção à luz">
 
-<body>
-    <header>
-        <div class="container">
-            <h1><a href="/">Caminho Cristão Bíblico</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Início</a></li>
-                    <li><a href="reflexoes.html">Reflexões</a></li>
-                    <li><a href="#">Quiz Bíblico</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <h2>Sobre o Caminho Cristão Bíblico</h2>
+        <p>Minha jornada de fé, transformada em código e compaixão.</p>
+        <p>
+            Meu nome é Eliezer, e este site, o Caminho Cristão Bíblico, é fruto de uma jornada muito pessoal.
+            Enquanto curso o quinto semestre de Engenharia da Computação na Univesp (Universidade Virtual do
+            Estado de São Paulo), me vi diante do desafio de desenvolver uma aplicação web para o meu projeto
+            integrador.
+        </p>
+        <p>
+            A paixão pela leitura e meditação bíblica sempre me acompanhou, e mesmo enfrentando a vida com a
+            singularidade da deficiência visual total, enxerguei nesse desafio uma oportunidade iluminada: unir
+            meus conhecimentos técnicos à minha fé, colocando a tecnologia a serviço daquilo que realmente
+            importa – a propagação da Palavra de Deus.
+        </p>
+        <p>
+            Sem o apoio de colegas, mas com a força inabalável que vem da fé e a determinação que me impulsiona
+            a superar cada obstáculo, dediquei cada linha de código, cada funcionalidade deste site, a construir
+            um espaço virtual capaz de tocar corações e aproximar as pessoas da essência da fé cristã.
+        </p>
+        <p>
+            Assim como os primeiros seguidores de Jesus, conhecidos como "seguidores do Caminho" (Atos 9:2),
+            este site busca resgatar a simplicidade e a pureza dos ensinamentos bíblicos. Aqui, convido você a
+            trilhar um caminho de aprendizado, reflexão e comunhão com Deus, através de conteúdos relevantes,
+            inspiradores e edificantes, sempre pautados na Bíblia Sagrada.
+        </p>
+        <p>
+            Acredito que a fé é uma experiência pessoal e única entre cada pessoa e Deus. Por isso, o Caminho
+            Cristão Bíblico é um espaço não denominacional, aberto a todos que buscam conhecer e se aprofundar
+            na fé cristã, independentemente de sua denominação ou igreja.
+        </p>
+        <p>Meu objetivo é simples, mas carregado de propósito:</p>
+        <ul>
+            <li>Aproximar você de Deus através da reflexão bíblica e da oração.</li>
+            <li>Oferecer ferramentas para o seu crescimento espiritual, com reflexões, estudos e mensagens
+                encorajadoras.</li>
+            <li>Promover a unidade entre os cristãos, focando nos ensinamentos centrais da fé cristã.</li>
+        </ul>
+        <p>
+            Assim como os primeiros discípulos, e inspirado pela minha própria história, creio que somos todos
+            chamados a trilhar o Caminho de Cristo, buscando viver em amor, verdade e serviço ao próximo.
+        </p>
+        <p>Junte-se a mim nesta jornada! Que a graça e a paz de nosso Senhor Jesus Cristo estejam com você.</p>
 
-    <main>
-        <section class="sobre">
-            <div class="container">
-                <img src="../static/img/caminho.jpg" alt="Caminho em direção à luz">
-
-                <h2>Sobre o Caminho Cristão Bíblico</h2>
-                <p>Minha jornada de fé, transformada em código e compaixão.</p>
-                <p>
-                    Meu nome é Eliezer, e este site, o Caminho Cristão Bíblico, é fruto de uma jornada muito pessoal.
-                    Enquanto curso o quinto semestre de Engenharia da Computação na Univesp (Universidade Virtual do
-                    Estado de São Paulo), me vi diante do desafio de desenvolver uma aplicação web para o meu projeto
-                    integrador.
-                </p>
-                <p>
-                    A paixão pela leitura e meditação bíblica sempre me acompanhou, e mesmo enfrentando a vida com a
-                    singularidade da deficiência visual total, enxerguei nesse desafio uma oportunidade iluminada: unir
-                    meus conhecimentos técnicos à minha fé, colocando a tecnologia a serviço daquilo que realmente
-                    importa – a propagação da Palavra de Deus.
-                </p>
-                <p>
-                    Sem o apoio de colegas, mas com a força inabalável que vem da fé e a determinação que me impulsiona
-                    a superar cada obstáculo, dediquei cada linha de código, cada funcionalidade deste site, a construir
-                    um espaço virtual capaz de tocar corações e aproximar as pessoas da essência da fé cristã.
-                </p>
-                <p>
-                    Assim como os primeiros seguidores de Jesus, conhecidos como "seguidores do Caminho" (Atos 9:2),
-                    este site busca resgatar a simplicidade e a pureza dos ensinamentos bíblicos. Aqui, convido você a
-                    trilhar um caminho de aprendizado, reflexão e comunhão com Deus, através de conteúdos relevantes,
-                    inspiradores e edificantes, sempre pautados na Bíblia Sagrada.
-                </p>
-                <p>
-                    Acredito que a fé é uma experiência pessoal e única entre cada pessoa e Deus. Por isso, o Caminho
-                    Cristão Bíblico é um espaço não denominacional, aberto a todos que buscam conhecer e se aprofundar
-                    na fé cristã, independentemente de sua denominação ou igreja.
-                </p>
-                <p>Meu objetivo é simples, mas carregado de propósito:</p>
-                <ul>
-                    <li>Aproximar você de Deus através da reflexão bíblica e da oração.</li>
-                    <li>Oferecer ferramentas para o seu crescimento espiritual, com reflexões, estudos e mensagens
-                        encorajadoras.</li>
-                    <li>Promover a unidade entre os cristãos, focando nos ensinamentos centrais da fé cristã.</li>
-                </ul>
-                <p>
-                    Assim como os primeiros discípulos, e inspirado pela minha própria história, creio que somos todos
-                    chamados a trilhar o Caminho de Cristo, buscando viver em amor, verdade e serviço ao próximo.
-                </p>
-                <p>Junte-se a mim nesta jornada! Que a graça e a paz de nosso Senhor Jesus Cristo estejam com você.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2024 Caminho Cristão Bíblico. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-</body>
-
-</html>
+        <h3>Conecte-se comigo:</h3>
+        <ul class="social-media">
+            <li><a href="https://www.linkedin.com/in/eliezer-tavares-de-oliveira-625a6b40/" target="_blank">LinkedIn</a>
+            </li>
+            <li><a href="https://instagram.com/eliezertavaresdeoliveira" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/eliezer.tavares.oliveira/" target="_blank">Facebook</a></li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
